@@ -55,3 +55,9 @@ async function updateCourse(id){
     console.log(book);
 };
 updateCourse('663c104357f009138c1d63d1');
+
+async function deleteBook(id){
+   const result = await Book.findByIdAndDelete({_id: id});
+   console.log(result);
+};
+deleteBook('663c104357f009138c1d63d1');
