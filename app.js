@@ -44,3 +44,14 @@ async function run(){
 };
 
 run();
+
+//update books:
+async function updateCourse(id){
+   const book = await Book.findByIdAndUpdate({_id: id}, {
+        $set:{
+            stock: 3
+        }
+    }, {new: true});
+    console.log(book);
+};
+updateCourse('663c104357f009138c1d63d1');
