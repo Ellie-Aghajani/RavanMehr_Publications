@@ -6,11 +6,19 @@ mongoose.connect('mongodb://localhost/publications')
     .catch(err => console.log(err.message));
  
 const bookSchema = new mongoose.Schema({
-    title: String,
-    description: String,
+    title:{ type: String, required: true},
+    description:{ type: String, required: true},
     imageURL:String,
-    tags:[String],
-    stock: Number,
+    tags:{
+        type: Array,
+        validate:{
+            validator: function(v){
+                return v.length > 0;
+            }, 
+            message: 'You should add at least one tag.'
+        }
+    },
+    stock:{ type: Number, required: true},
     date:{ type: Date, default: Date. now }
 });
 
