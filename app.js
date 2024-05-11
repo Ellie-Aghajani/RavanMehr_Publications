@@ -13,7 +13,7 @@ const bookSchema = new mongoose.Schema({
         type: Array,
         validate:{
             validator: function(v){
-                return v.length > 0;
+                return v && v.length > 0;
             }, 
             message: 'You should add at least one tag.'
         }
